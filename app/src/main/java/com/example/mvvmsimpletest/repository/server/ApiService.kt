@@ -50,6 +50,6 @@ interface ApiService {
 //    }
 
     @GET("/v3/7403b227-dd7a-4509-9ba1-31b706ebac14")
-    fun getUsers(): Single<Response<UsersResponce>>
+    fun getUsers(): Single<UsersResponce>
 
 }

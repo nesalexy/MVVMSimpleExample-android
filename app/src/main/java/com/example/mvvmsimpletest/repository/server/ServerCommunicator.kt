@@ -17,7 +17,7 @@ class ServerCommunicator(private val mService: ApiService) {
         private val DEFAULT_RETRY_ATTEMPTS = 4L
     }
 
-    fun getAllUsers(): Single<Response<UsersResponce>> {
+    fun getAllUsers(): Single<UsersResponce> {
         return mService.getUsers()
             .compose(singleTransformer())
             .doOnError { t: Throwable -> Log.e("ServerCommunicator", t.message) }

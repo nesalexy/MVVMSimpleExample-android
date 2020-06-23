@@ -12,7 +12,7 @@ import java.util.*
 
 class AppRepository(private val serverCommunicator: ServerCommunicator) {
 
-    fun getAllUsers(): Single<Response<UsersResponce>>? {
+    fun getAllUsers(): Single<UsersResponce>? {
         return serverCommunicator.getAllUsers()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

@@ -9,14 +9,14 @@ import com.kalashnyk.denys.kotlinsample.presentation.widget.SingleLiveEvent
 import retrofit2.Response
 
 class AllUsersViewModel(application: Application, private val mRepository: AppRepository) : BaseViewModel(application) {
-    private val liveDataItems = SingleLiveEvent<Response<UsersResponce>>()
+    private val liveDataItems = SingleLiveEvent<UsersResponce>()
 
     @SuppressLint("CheckResult")
     fun getAllItems() {
-        mRepository.getAllUsers()?.subscribe { list -> liveDataItems.value = list }
+        mRepository.getAllUsers()?.subscribe { responce -> liveDataItems.value = responce }
     }
 
-    fun getLiveDataItems(): LiveData<Response<UsersResponce>> {
+    fun getLiveDataItems(): LiveData<UsersResponce> {
         return liveDataItems
     }
 }

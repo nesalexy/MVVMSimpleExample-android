@@ -25,12 +25,18 @@ class MainActivity : BaseActivity() {
         viewModel?.getLiveDataItems()?.observe(this, Observer { it?.let { initData(it) } } )
     }
 
+    @Override
+    override fun onResume() {
+        super.onResume()
+
+    }
+
     override fun injectDependency(component: ViewModelComponent) {
         component.inject(this)
     }
 
-    fun initData(userData: Response<UsersResponce>) {
-        Log.e("MainActivity", userData.body().toString());
+    fun initData(userData: UsersResponce) {
+        Log.e("MainActivity", userData.data.toString());
     }
 
 
