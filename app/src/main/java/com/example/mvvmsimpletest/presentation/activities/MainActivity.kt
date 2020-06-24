@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import com.example.mvvmsimpletest.R
 import com.example.mvvmsimpletest.di.component.ViewModelComponent
 import com.example.mvvmsimpletest.domain.AllUsersViewModel
+import com.example.mvvmsimpletest.repository.pojo.User
 import com.example.mvvmsimpletest.repository.pojo.UsersResponce
 import com.kalashnyk.denys.kotlinsample.presentation.base.BaseActivity
 import retrofit2.Response
@@ -36,7 +37,9 @@ class MainActivity : BaseActivity() {
     }
 
     fun initData(userData: UsersResponce) {
-        Log.e("MainActivity", userData.data.toString());
+        for(user: User in userData.data) {
+            Log.e(user.id.toString(), user.name);
+        }
     }
 
 
